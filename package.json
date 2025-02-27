@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend da aplicação de cadastro de cliente",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasAugustoRodriguesAlves/backend.git"
+  },
+  "keywords": [
+    "API",
+    "Backend",
+    "MVC",
+    "REST"
+  ],
+  "author": "Lucas Augusto Rodrigues Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasAugustoRodriguesAlves/backend/issues"
+  },
+  "homepage": "https://github.com/LucasAugustoRodriguesAlves/backend#readme",
+  "dependencies": {
+    "mysql2": "^3.12.0"
+  }
+}
