@@ -7,6 +7,7 @@ export default class Roma {
   #volta;
   #partida;
   #destino;
+  #viagemDB;
 
   constructor(nome, preco, ida, volta, partida, destino) {
     this.#nome = nome;
@@ -15,6 +16,7 @@ export default class Roma {
     this.#volta = volta;
     this.#partida = partida;
     this.#destino = destino;
+    this.#viagemDB = new ViagemDB();
   }
 
   get nome() {
@@ -77,22 +79,22 @@ export default class Roma {
   }
 
   async gravar() {
-    const viDB = new ViagemDB();
-    await viDB.gravar(this);
+    await this.#viagemDB.gravar(this);
   }
 
   async alterar() {
-    const viDB = new ViagemDB();
-    await viDB.alterar(this);
+    await this.#viagemDB.alterar(this);
   }
 
   async excluir() {
-    const viDB = new ViagemDB();
-    await viDB.excluir(this);
+    await this.#viagemDB.excluir(this);
   }
 
-  async consultar() {
-    const viDB = new ViagemDB();
-    return await viDB.consultar();
+  async consultar(termo) {
+    return await this.#viagemDB.consultar(termo);
+  }
+
+  async consultarNome(nome) {
+    return await this.#viagemDB.consultarNome(nome);
   }
 }

@@ -1,43 +1,13 @@
-import Roma from "./Model/Roma.js";
+import express from "express";
+import rotaViagem from "./Route/rotaViagem.js";
 
-var viagem = new Roma(
-  "Roma",
-  "R$ 2.270.00",
-  "03/05/2025",
-  "05/05/2025",
-  "Guarulhos",
-  "Roma"
-);
+const app = express();
 
-/*viagem
-  .gravar()
-  .then(() => {
-    console.log("Viagem gravada com sucesso!");
-  })
-  .catch((erro) => {
-    console.log("Erro ao gravar a viagem: " + erro);
-  });
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-viagem
-  .consultar()
-  .then((listaViagens) => {
-    if (listaViagens.length === 0) {
-      console.log("Nenhuma viagem encontrada.");
-    } else {
-      for (const viagem of listaViagens) {
-        console.log(viagem.toJSON());
-      }
-    }
-  })
-  .catch((erro) => {
-    console.log("Erro ao consultar as viagens: " + erro);
-  });
-*/
-viagem.excluir()
-  .then(() => {
-    console.log("Viagem excluída com sucesso!");
-  })
-  .catch((erro) => {
-    console.log("Erro ao excluir a viagem: " + erro);
-  });
-  
+app.use("/viagens", rotaViagem);
+
+app.listen(3000, "localhost", () => {
+  console.log("Backend ouvindo em http://localhost:3000");
+});
